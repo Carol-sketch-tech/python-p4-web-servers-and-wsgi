@@ -1,0 +1,59 @@
+web sever are the software and hardware that allows to access resources through the internet 
+the commans to create a server is as follows 
+    python -m http.server 
+
+http.sever is a module in pythons standard library that creates a simple webpage that can respond to clients through na open URL and port 
+when uou run the command line it create a navigation directory structure with URL mimicking the path for each resource.
+
+PORTS 
+the 8000 after your hostname is the port that allows you to access the resource that your server is serving.
+ports are a networkong concept that you wont use a whole lot in fullstack web development but youll see them wehnever you run a server.
+ some ports are explicit and specific you cant access your http.srver resource without includign :8000 at the end your URL other are implies by the protocol to thr resource.
+    HTTP - 80
+    HTTPS - 443
+    FTP - 20 and 21 
+
+    whe  running your own server, you can choose any port bertween 1024 and 65, 535 to make your aplication accessible in the browser http.sever to 8000 as seen above, and flask application default to prot 5000.
+    were are typically going to chanfe this to 5555 because of another application running on port 5000
+
+        WEB SERVER GATEWAY INTERFACE 
+        (WSGI)
+
+        THE web secer gateway interface is a specificatuin that tells our apython code on a client on a client or sercer how to communicate effectively over HTTP.
+        WSGI could be configures to work with pythonnn one side and to process requests and web servers on the other side to process responses.
+
+        WIRKZEUG 
+        this is the WSGI library.
+        it has a lot of features that wil be used to build our first python applications:
+            1. an in browser debugger 
+            robust classes for request and responses 
+             routing, autogenerating and mangaments of IRLS 
+             a development server
+             a testing frameworm that does not require a running server 
+        
+    
+    A simple WERkzeug Application 
+    step 1.
+        run pipent install && pipenv shell in the teminal to generate and enter the virtual environment 
+
+    breakdown the code 
+        @Request application 
+        def application(request):
+            print(f'This web server is running at {request.remote_addr}')
+            return Response('A WSGI generates this reponse')
+    this sole funtion is decorates it with the Request.application method which tell it to run any code inside of the function in the browser at the lication 
+    we specify with our development.
+
+    the othe bit of code:
+    run_simple(
+        hostname='localhost'
+        port= 5555,
+        application = application
+    )
+    then run_simple amethod runs a server for a one-page application wihtout complications. it is not suites for a 
+    productions server that supports millions of usrd, but it gives use the tols we need to develop new pages for the web applications that we wventually deploy to those servers.
+
+    the run_simple method requires three arguments
+        1. hostname - generally this is the localhost , as it is typically used for lical development
+        2. port - 
+        3. application- the application will nbe defines and the fucntion somewhere in the file as we saw before we names ours application.
